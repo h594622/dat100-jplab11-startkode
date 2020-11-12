@@ -20,38 +20,47 @@ public class LesBlogg {
 	private static String TEKST = "TEKST";
 	private static String BILDE = "BILDE";
 
-	// som leser inn bloggen fra en fil på formatet som i oppgave 4 og returnerer en 
+	// som leser inn bloggen fra en fil på formatet som i oppgave 4 og returnerer en
 	// samling (blogg) med de Innlegg-objekt som er lest inn.
-	
+
 	public static Blogg les(String mappe, String filnavn) {
 
 		Scanner leser = null;
 		String melding = "Tabellen er lagret";
 		
-		try {
-		File bloggfil = new File("bloggkorrect.dat");
+		File bloggfil = new File(mappe + filnavn);
 		leser = new Scanner(bloggfil);
 		
 		int antInnlegg = Integer.parseInt(leser.nextLine());
 		Innlegg[] bloggen = new Innlegg[antInnlegg];
 		
+		
+		if (leser.nextLine() == TEKST) {
+		int id = Integer.parseInt(leser.next());
+		String bruker = leser.next();
+		String dato = leser.next();
+		int likes = Integer.parseInt(leser.next());
+		String tekst = leser.next();
+
+		{
+			
+		if (leser.nextLine() == BILDE) {
+		int id = Integer.parseInt(leser.next());
+		String bruker = leser.next();
+		String dato = leser.next();
+		int tekst = Integer.parseInt(leser.next());
+		
+				
+				{
+		}
+
+		}
+
+		
 		for (int i = 0; i < antInnlegg; i++) {
-			bloggen[i] = leser.delimiter()
-		}
-		
-		}
-		
-		catch (FileNotFoundException e) {
-			melding = "Filen finnes ikke";
 
 		}
-		
-		finally {
-		if (leser != null)
+	
 			leser.close();
-			System.out.println(melding);
-		}
-		
-
 	}
 }
